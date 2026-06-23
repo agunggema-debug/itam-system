@@ -2,7 +2,7 @@
 cmds = ["composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --no-scripts"]
 
 [phases.setup]
-cmds = ["php artisan package:discover --ansi || true"]
+cmds = ["mkdir -p /app/storage/logs /app/storage/framework/cache /app/storage/framework/sessions /app/storage/framework/views", "chmod -R 777 /app/storage", "php artisan package:discover --ansi || true"]
 
 [start]
 cmd = "(php artisan key:generate --force || true) && php artisan package:discover --ansi && php artisan migrate --force && (php artisan db:seed --force || echo 'Seeding skipped') && php artisan serve --host=0.0.0.0 --port=$PORT"
