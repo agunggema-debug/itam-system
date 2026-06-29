@@ -32,5 +32,9 @@ Thumbs.db
 # Test files
 /test-*.php
 
+# Markdown files (except README.md)
+*.md
+!README.md
+
 # IDE
 .code-workspace
